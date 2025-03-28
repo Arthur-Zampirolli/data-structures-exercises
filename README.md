@@ -1,2 +1,2 @@
 # data-structures-exercises
-Data structures exercises
+Data structures exercises from class
