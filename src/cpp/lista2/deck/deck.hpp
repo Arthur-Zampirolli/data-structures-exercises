@@ -80,29 +80,36 @@ struct Deque{
     auto removeFim(){
         std::printf("removendo %c do fim do deck...\n", this->no_fim->dado);
         No *dado = this->no_fim;
+        char valor = dado->dado;
         this->N--;
         if(this->N == 0){
             this->no_fim = this->no_inicio = nullptr;
             free(dado);
-            return;
+            return valor;
         }
         this->no_fim = dado->ant;
         dado->ant->prox = nullptr;
         free(dado);
+        return valor;
     }
     //complexidade O(1)
     auto removeInicio(){
         std::printf("removendo %c do inicio do deck...\n", this->no_inicio->dado);
+        if(this->N == 0){
+            return '\0';
+        }
         No *dado = this->no_inicio;
+        char valor = dado->dado;
         this->N--;
         if(this->N == 0){
             this->no_fim = this->no_inicio = nullptr;
             free(dado);
-            return;
+            return valor;
         }
         this->no_inicio = dado->prox;
         dado->prox->ant = nullptr;
         free(dado);
+        return valor;
     }
     //complexidade O(N)
     auto imprime(){
@@ -130,22 +137,6 @@ struct PilhaDeque{
         d.insereInicio(dado);
     }
     auto pop(){
-        d.removeInicio();
-    }
-    auto imprime(){
-        d.imprime();
-    }
-};
-//mesma complexidade do deque
-struct FilaDeque{
-    Deque d;
-    FilaDeque(){
-        d.initDeque();
-    }
-    auto insere(char dado){
-        d.insereFim(dado);
-    }
-    auto remove(){
         d.removeInicio();
     }
     auto imprime(){

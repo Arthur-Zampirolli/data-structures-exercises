@@ -17,8 +17,20 @@ set(CMAKE_CXX_MODULE_STD 1)
 add_library(deck STATIC     deck/deck.cpp deck/deck.hpp)
 target_sources(deck  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/deck)
 
+add_library(exercicios STATIC     exercicios/exercicios.cpp exercicios/exercicios.hpp)
+target_sources(exercicios  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/exercicios)
+
+add_library(pilha2Filas STATIC     pilha2Filas/pilha2Filas.cpp pilha2Filas/pilha2Filas.hpp)
+target_sources(pilha2Filas  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pilha2Filas)
+
+add_library(fila STATIC     fila/fila.cpp fila/fila.hpp)
+target_sources(fila  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/fila)
+
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE deck)
+target_link_libraries(main PRIVATE exercicios)
+target_link_libraries(main PRIVATE fila)
+target_link_libraries(main PRIVATE pilha2Filas)
 
 set_property(TARGET main PROPERTY CXX_STANDARD 23)
 set_property(TARGET main PROPERTY CXX_STANDARD_REQUIRED ON)
