@@ -1,5 +1,5 @@
 
-#include "deck/deck.h"
+#include "deck/deck.hpp"
 #include <iostream>
 #include "stdlib.h"
 

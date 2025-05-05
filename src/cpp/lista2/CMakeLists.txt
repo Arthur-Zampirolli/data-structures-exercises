@@ -14,7 +14,7 @@ set(CMAKE_CXX_MODULE_STD 1)
 
 #target_sources(deck  PUBLIC  FILE_SET CXX_MODULES FILES   deck/deck.cppm)
 
-add_library(deck STATIC     deck/deck.cpp deck/deck.h)
+add_library(deck STATIC     deck/deck.cpp deck/deck.hpp)
 target_sources(deck  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/deck)
 
 add_executable(main main.cpp)
