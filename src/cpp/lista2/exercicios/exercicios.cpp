@@ -60,3 +60,116 @@ void exercicio3(){
     f2p->desenfileira();
     f2p->imprime();
 }
+void exercicio4a(){
+    std::stack<char> s; 
+    s.push('A'); 
+    s.push('B'); 
+    s.push('C'); 
+    imprimeStack(s);
+    inverte4a(&s); 
+    imprimeStack(s);
+    // pilha s deve estar invertida 
+}
+void exercicio4b(){
+    std::stack<char> s; 
+    s.push('A'); 
+    s.push('B'); 
+    s.push('C'); 
+    imprimeStack(s);
+    inverte4b(&s); 
+    imprimeStack(s);
+    // pilha s deve estar invertida 
+}
+
+void exercicio4c(){
+    std::stack<char> s; 
+    s.push('A'); 
+    s.push('B'); 
+    s.push('C'); 
+    imprimeStack(s);
+    inverte4c(&s); 
+    imprimeStack(s);
+    // pilha s deve estar invertida 
+}
+
+void exercicio5(){
+
+    // pilha s deve estar invertida 
+}
+
+void exercicio6(){
+
+    // pilha s deve estar invertida 
+}
+void exercicio7(){
+ 
+
+    // pilha s deve estar invertida 
+}
+/*funcoes auxiliares dos exercicios 4 pra frente*/
+
+void imprimeStack(stack<char> p){
+    // if(p.empty()) return;
+    // char c = p.top();
+    // p.pop();
+    // imprimeStack(p);
+    // std::printf(" %c ", c);
+    // p.push(c);
+    while(p.size() > 0){
+        char c = p.top();
+        std::printf(" %c ", c);
+        p.pop();
+    }
+    ::printf("\n");
+}
+//complexidade O(N)
+void inverte4a(stack<char>*s){
+    queue<char> q;
+    while(s->size() > 0){
+        q.push(s->top());
+        s->pop();
+    }
+    while(q.size() > 0){
+        s->push(q.front());
+        q.pop();
+    }
+}
+void inverte4b(stack<char>*s){
+    //complexidade O(N)
+    stack<char> p1;
+    stack<char> p2;
+    while(s->size() > 0){
+        char c = s->top();
+        p1.push(c);
+        s->pop();
+    }
+    while(p1.size() > 0){
+        char c = p1.top();
+        p2.push(c);
+        p1.pop();
+    }
+    while(p2.size() > 0){
+        char c = p2.top();
+        s->push(c);
+        p2.pop();
+    }
+}
+//complexidade O(N^2)
+void inverte4c(stack<char>*s){
+    stack<char> p;
+    //complexidade O(N)
+    while(s->size() > 0){
+        char c = s->top();
+        s->pop();
+        p.push(c);
+    }
+    //complexidade O(N^2)
+    fillQueue(s, &p);
+}
+void fillQueue(stack<char>*s, stack<char> *p){
+    if(p->empty())return;
+    char c = p->top();
+    p->pop();
+    fillQueue(s, p);
+    s->push(c);
+}

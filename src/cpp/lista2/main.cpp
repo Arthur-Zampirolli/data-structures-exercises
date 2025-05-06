@@ -14,6 +14,12 @@ int main(){
     exercicio2();
     std::printf("-------------EXERCICIO 3-------------\n\n");
     exercicio3();
+    std::printf("-------------EXERCICIO 4 A-------------\n\n");
+    exercicio4a();
+    std::printf("-------------EXERCICIO 4 B------------\n\n");
+    exercicio4b();
+    std::printf("-------------EXERCICIO 4 C------------\n\n");
+    exercicio4c();
     std::printf("-----------------FIM----------------\n\n");
     return 0;
 }

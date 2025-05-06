@@ -5,6 +5,7 @@
 struct Pilha2F{
     FilaDeque aux;
     FilaDeque p;
+    //complexidade O(1)
     auto push(char dado){
         aux.insere(dado);
     }
@@ -19,16 +20,20 @@ struct Pilha2F{
         }
         aux.remove();
     }
+    //complexidade O(1)
     auto topo(){
         return aux.fim();
     }
+    //complexidade O(N)
     void imprime(){
         aux.imprimeFim();
     }
+    //complexidade O(1)
     auto tamanho(){
         return aux.N;
     }
     private: 
+    //complexidade O(N)
         void transfere(int d){
             while(aux.N > 0 && d < 0){
                 char c = aux.remove();
