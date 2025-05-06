@@ -23,14 +23,22 @@ target_sources(exercicios  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/exercicios)
 add_library(pilha2Filas STATIC     pilha2Filas/pilha2Filas.cpp pilha2Filas/pilha2Filas.hpp)
 target_sources(pilha2Filas  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pilha2Filas)
 
+add_library(fila2P STATIC     fila2P/fila2P.cpp fila2P/fila2P.hpp)
+target_sources(fila2P  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/fila2P)
+
 add_library(fila STATIC     fila/fila.cpp fila/fila.hpp)
 target_sources(fila  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/fila)
+
+add_library(pilha STATIC     pilha/pilha.cpp pilha/pilha.hpp)
+target_sources(pilha  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pilha)
 
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE deck)
 target_link_libraries(main PRIVATE exercicios)
 target_link_libraries(main PRIVATE fila)
 target_link_libraries(main PRIVATE pilha2Filas)
+target_link_libraries(main PRIVATE fila2P)
+target_link_libraries(main PRIVATE pilha)
 
 set_property(TARGET main PROPERTY CXX_STANDARD 23)
 set_property(TARGET main PROPERTY CXX_STANDARD_REQUIRED ON)

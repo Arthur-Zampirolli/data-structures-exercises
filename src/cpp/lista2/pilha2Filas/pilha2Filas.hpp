@@ -2,22 +2,31 @@
 #define PILHA_2_FILAS
 #include "../fila/fila.hpp"
 
-struct Pilha2Filas{
+struct Pilha2F{
     FilaDeque aux;
     FilaDeque p;
     auto push(char dado){
         aux.insere(dado);
     }
+    //complexidade O(N)
     auto pop(){
-        transfere(-1);
-        p.remove();
-        transfere(1);      
+        //tem que circular ela pra baixo
+        int i = aux.N - 1;
+        while(i >= 1){
+            char c = aux.remove();
+            aux.insere(c);
+            i--;
+        }
+        aux.remove();
     }
     auto topo(){
         return aux.fim();
     }
     void imprime(){
-        aux.imprime();
+        aux.imprimeFim();
+    }
+    auto tamanho(){
+        return aux.N;
     }
     private: 
         void transfere(int d){

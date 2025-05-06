@@ -38,7 +38,7 @@ struct Deque{
     }
     //complexidade O(1)
     auto inicio(){
-        return this->no_inicio;
+        return this->no_inicio->dado;
     }
     //complexidade O(1)
     auto fim(){
@@ -120,27 +120,18 @@ struct Deque{
             i = i->prox;
         }
         std::printf("\n");
+    }    //complexidade O(N)
+    auto imprimeFim(){
+        No *i = this->no_fim;
+        std::printf("Imprimindo valores do deck...\n");
+        while(i){
+            std::printf("%c ",i->dado);
+            i = i->ant;
+        }
+        std::printf("\n");
     }
-};
-
-//mesma complexidade do deque
-struct PilhaDeque{
-    Deque d;
-    PilhaDeque(){
-        //d = new Deque();
-        d.initDeque();
-    }
-    auto top(){
-        d.inicio();
-    }
-    auto push(char dado){
-        d.insereInicio(dado);
-    }
-    auto pop(){
-        d.removeInicio();
-    }
-    auto imprime(){
-        d.imprime();
+    auto tamanho(){
+        return N;
     }
 };
 

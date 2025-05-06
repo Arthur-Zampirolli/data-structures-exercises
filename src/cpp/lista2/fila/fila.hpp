@@ -30,6 +30,9 @@ struct FilaDeque{
     auto imprime(){
         d.imprime();
     }
+    auto imprimeFim(){
+        d.imprimeFim();
+    }
 };
 
 #endif
