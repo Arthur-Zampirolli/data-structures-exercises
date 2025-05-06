@@ -13,7 +13,9 @@ void exercicio3();
 void exercicio4a();
 void exercicio4b();
 void exercicio4c();
-void exercicio5();
+void exercicio5a();
+void exercicio5b();
+void exercicio5c();
 void exercicio6();
 void exercicio7();
 
@@ -23,5 +25,11 @@ void imprimeStack(stack<char> p);
 void inverte4a(stack<char>*s);
 void inverte4b(stack<char>*s);
 void inverte4c(stack<char>*s);
+void inverte5a(queue<char> *s);
+void inverte5b(queue<char> *s);
 void fillQueue(stack<char>*s, stack<char> *p);
+char toPoloneseNotation(string exp);
+bool checkExpBalance(string e);
+char pegaUltimo(queue<char> *f);
+void imprimeFila(queue<char> f);
 #endif

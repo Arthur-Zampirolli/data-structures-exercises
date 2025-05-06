@@ -20,6 +20,10 @@ int main(){
     exercicio4b();
     std::printf("-------------EXERCICIO 4 C------------\n\n");
     exercicio4c();
+    std::printf("-------------EXERCICIO 5 A------------\n\n");
+    exercicio5a();
+    std::printf("-------------EXERCICIO 5 B------------\n\n");
+    exercicio5b();
     std::printf("-----------------FIM----------------\n\n");
     return 0;
 }

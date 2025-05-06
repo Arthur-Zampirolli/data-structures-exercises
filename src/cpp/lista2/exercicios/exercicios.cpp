@@ -91,22 +91,72 @@ void exercicio4c(){
     imprimeStack(s);
     // pilha s deve estar invertida 
 }
+void exercicio5a(){
+    std::queue<char> q; 
+    q.push('A'); 
+    q.push('B'); 
+    q.push('C'); 
+    imprimeFila(q);
+    inverte5a(&q);
+    imprimeFila(q);
 
-void exercicio5(){
-
-    // pilha s deve estar invertida 
 }
+void exercicio5b(){
+    std::queue<char> q; 
+    q.push('A'); 
+    q.push('B'); 
+    q.push('C');
+    imprimeFila(q); 
+    inverte5b(&q); 
+    imprimeFila(q);
+}
+
+
 
 void exercicio6(){
 
     // pilha s deve estar invertida 
 }
 void exercicio7(){
- 
+// Entrada: “((A+B)*(C-(F/D)))” 
+// Saída: “AB+CFD/-*” 
+    string exp = "((A+B)*(C-(F/D)))";
+    if(!checkExpBalance(exp))return;
 
     // pilha s deve estar invertida 
 }
 /*funcoes auxiliares dos exercicios 4 pra frente*/
+bool checkExpBalance(string e){
+    int lp = 0;
+    int rp = 0;
+    int i = 0;
+    while(i < e.length()){
+        if(e[i] == '('){
+            lp++;
+        }
+        if(e[i] == ')'){
+            rp++;
+        }
+        i++;
+    }
+    return rp == lp;
+}
+char toPoloneseNotation(string e){
+    stack<char> p;
+    int i = 0;
+    while(i < e.length()){
+        if(e[i]!=' '){}
+        i++;
+    }
+}
+
+void imprimeFila(queue<char> f){
+    while(f.size() > 0){
+        :: printf("%c ", f.front());
+        f.pop();
+    }
+    ::printf("\n");
+}
 
 void imprimeStack(stack<char> p){
     // if(p.empty()) return;
@@ -117,7 +167,7 @@ void imprimeStack(stack<char> p){
     // p.push(c);
     while(p.size() > 0){
         char c = p.top();
-        std::printf(" %c ", c);
+        ::printf(" %c ", c);
         p.pop();
     }
     ::printf("\n");
@@ -166,6 +216,52 @@ void inverte4c(stack<char>*s){
     //complexidade O(N^2)
     fillQueue(s, &p);
 }
+
+void inverte5a(queue<char> *s){
+//inverter usando uma Pilha 
+    stack<char> p;
+    while(s->size() > 0){
+        p.push(s->front());
+        s->pop();
+    }
+    while(p.size() > 0){
+        s->push(p.top());
+        p.pop();
+    }
+}
+//complexidade de O(N^2)
+void inverte5b(queue<char> *f){
+    //inverter usando duas filas 
+    std::queue<char> f1; // primeira fila auxiliar 
+    std::queue<char> f2; // segunda fila auxiliar 
+    int N = f->size();
+    while(f->size() > 0){
+        char c = f->front();
+        f->pop();
+        f1.push(c);
+    }
+    //complexidade de O(N^2)
+    while(f2.size() < N){
+        f2.push(pegaUltimo(&f1));
+    }
+    while(f2.size() > 0){
+        f->push(f2.front());
+        f2.pop();
+    }
+}
+char pegaUltimo(queue<char> *f){
+    int i = 0;
+    while(i < f->size()- 1){
+        char c = f->front();
+        f->pop();
+        f->push(c);
+        i++;
+    }
+    char c = f->front();
+    f->pop();
+    return c;
+}
+
 void fillQueue(stack<char>*s, stack<char> *p){
     if(p->empty())return;
     char c = p->top();
