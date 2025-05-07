@@ -34,4 +34,5 @@ char toPoloneseNotation(string exp);
 bool checkExpBalance(string e);
 char pegaUltimo(queue<char> *f);
 void imprimeFila(queue<char> f);
+void polonesaReversa(const string& exp, string& result);
 #endif
