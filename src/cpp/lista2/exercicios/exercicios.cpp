@@ -132,34 +132,57 @@ void exercicio7(){
 // Entrada: “((A+B)*(C-(F/D)))” 
 // Saída: “AB+CFD/-*” 
     string exp = "((A+B)*(C-(F/D)))";
-    if(!checkExpBalance(exp))return;
+    string result;
 
-    // pilha s deve estar invertida 
+    polonesaReversa(exp, result);
+
+    cout << "result: " << result << endl;
 }
 /*funcoes auxiliares dos exercicios 4 pra frente*/
-bool checkExpBalance(string e){
-    int lp = 0;
-    int rp = 0;
-    int i = 0;
-    while(i < e.length()){
-        if(e[i] == '('){
-            lp++;
-        }
-        if(e[i] == ')'){
-            rp++;
-        }
-        i++;
-    }
-    return rp == lp;
+//complexidade O(1)
+bool checkOperador(char c) {
+    return c == '+' || c == '-' || c == '*' || c == '/';
 }
-char toPoloneseNotation(string e){
-    stack<char> p;
-    int i = 0;
-    while(i < e.length()){
-        if(e[i]!=' '){}
-        i++;
+//complexidade O(1)
+
+int precedencia(char op) {
+    if (op == '+' || op == '-') return 1;
+    if (op == '*' || op == '/') return 2;
+    return 0;
+}
+//complexidade O(N^2)
+void polonesaReversa(const string& exp, string& result) {
+    stack<char> operadores;
+
+    for (char c : exp) {
+        if (isspace(c)) continue;
+
+        if (isalnum(c)) {
+            result += c;
+        } else if (c == '(') {
+            operadores.push(c);
+        } else if (c == ')') {
+            while (!operadores.empty() && operadores.top() != '(') {
+                result += operadores.top();
+                operadores.pop();
+            }
+            if (!operadores.empty() && operadores.top() == '(') {
+                operadores.pop();
+            }
+        } else if (checkOperador(c)) {
+            while (!operadores.empty() && checkOperador(operadores.top()) &&
+                   precedencia(operadores.top()) >= precedencia(c)) {
+                result += operadores.top();
+                operadores.pop();
+            }
+            operadores.push(c);
+        }
     }
-    return 'a';
+
+    while (!operadores.empty()) {
+        result += operadores.top();
+        operadores.pop();
+    }
 }
 
 void imprimeFila(queue<char> f){
