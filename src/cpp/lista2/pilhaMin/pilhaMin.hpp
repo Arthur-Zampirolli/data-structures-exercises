@@ -5,7 +5,7 @@
 #include "../pilha/pilha.hpp"
 using namespace std;
 
-//mesma complexidade do deque
+//complexidade O(N)
 struct PilhaMin { 
     // incluir variáveis necessárias
     PilhaDequeInt p;

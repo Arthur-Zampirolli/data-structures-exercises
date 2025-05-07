@@ -228,7 +228,7 @@ void inverte4c(stack<char>*s){
     //complexidade O(N^2)
     fillQueue(s, &p);
 }
-
+//complexidade de O(N)
 void inverte5a(queue<char> *s){
 //inverter usando uma Pilha 
     stack<char> p;
