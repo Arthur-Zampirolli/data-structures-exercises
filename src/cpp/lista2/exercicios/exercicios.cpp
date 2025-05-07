@@ -114,8 +114,19 @@ void exercicio5b(){
 
 
 void exercicio6(){
-
-    // pilha s deve estar invertida 
+    PilhaMin p;
+    p.empilha(2);
+    p.empilha(3);
+    p.empilha(4);
+    p.empilha(5);
+    p.empilha(6);
+    p.empilha(1);
+    ::printf("valor minimo: %d\n", p.obterMinimo());
+    p.imprime();
+    p.desempilha();
+    p.imprime();
+    ::printf("valor minimo: %d\n", p.obterMinimo());
+    
 }
 void exercicio7(){
 // Entrada: “((A+B)*(C-(F/D)))” 
@@ -148,6 +159,7 @@ char toPoloneseNotation(string e){
         if(e[i]!=' '){}
         i++;
     }
+    return 'a';
 }
 
 void imprimeFila(queue<char> f){

@@ -3,6 +3,8 @@
 #include "../deck/deck.hpp"
 #include "../pilha2Filas/pilha2Filas.hpp"
 #include "../fila2P/fila2P.hpp"
+#include "../pilha/pilha.hpp"
+#include "../pilhaMin/pilhaMin.hpp"
 #include <stack>
 #include <queue>
 

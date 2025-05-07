@@ -8,14 +8,52 @@ using namespace std;
 //mesma complexidade do deque
 struct PilhaMin { 
     // incluir variáveis necessárias
-    PilhaDeque p;
+    PilhaDequeInt p;
+    PilhaDequeInt aux;
     int minimo; 
+    //complexidade O(1)
     int topo(){
         return p.topo();
     } 
-    int desempilha(); 
-    void empilha(int t); 
-    int obterMinimo(); 
+    //complexidade O(N)
+    int desempilha(){//23  124 1 5 23
+        int result = p.pop();
+        if(result == minimo){
+            minimo = p.topo();
+        }
+        if(minimo < p.topo() && minimo != result){
+            return result;
+        }
+        while(p.tamanho() > 0){
+            int a = p.pop();
+            if(a < minimo){
+                minimo = a;
+            }
+            aux.push(a);
+        }
+        while(aux.tamanho() > 0){
+            p.push(aux.pop());
+        }
+        return result;
+    }
+    //complexidade O(1)
+    void empilha(int t){
+        if(p.tamanho() == 0){
+            minimo = t;
+        }
+        if(minimo > t){
+            minimo = t;
+        }
+        p.push(t);
+    } 
+    //complexidade O(1)
+    int obterMinimo(){
+        return minimo;
+    } 
+    //complexidade O(N)
+    void imprime(){
+        p.imprime();
+    }
     // mais métodos auxiliares 
 };
     

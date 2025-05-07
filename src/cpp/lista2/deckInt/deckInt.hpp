@@ -1,27 +1,27 @@
-#ifndef DECK
-#define DECK
+#ifndef DECK_INT
+#define DECK_INT
 #include <iostream>
 #include "stdlib.h"
 using namespace std;
 
 
-template <typename Agregado, typename Tipo>
-concept DequeTAD = requires(Agregado a, Tipo t){ 
-    // requer operação de consulta ao elemento 'inicio' 
-    { a.inicio() }; 
-    // requer operação de consulta ao elemento 'fim' 
-    { a.fim() }; 
-    // requer operação 'insereInicio' sobre tipo 't' 
-    { a.insereInicio(t) }; 
-    // requer operação 'insereFim' sobre tipo 't' 
-    { a.insereFim(t) }; 
-    // requer operação 'removeInicio' e retorna tipo 't' 
-    { a.removeInicio() }; 
-    // requer operação 'removeFim' e retorna tipo 't' 
-    { a.removeFim() }; 
-};
+// template <typename Agregado, typename Tipo>
+// concept DequeTAD = requires(Agregado a, Tipo t){ 
+//     // requer operação de consulta ao elemento 'inicio' 
+//     { a.inicio() }; 
+//     // requer operação de consulta ao elemento 'fim' 
+//     { a.fim() }; 
+//     // requer operação 'insereInicio' sobre tipo 't' 
+//     { a.insereInicio(t) }; 
+//     // requer operação 'insereFim' sobre tipo 't' 
+//     { a.insereFim(t) }; 
+//     // requer operação 'removeInicio' e retorna tipo 't' 
+//     { a.removeInicio() }; 
+//     // requer operação 'removeFim' e retorna tipo 't' 
+//     { a.removeFim() }; 
+// };
 
-struct Deque{
+struct DequeInt{
     struct No {
         int dado;
         No* prox;
@@ -93,7 +93,7 @@ struct Deque{
         return valor;
     }
     //complexidade O(1)
-    auto removeInicio(){
+    int removeInicio(){
         std::printf("removendo %d do inicio do deck...\n", this->no_inicio->dado);
         if(this->N == 0){
             return '\0';
