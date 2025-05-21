@@ -5,6 +5,7 @@
 #include "../fila2P/fila2P.hpp"
 #include "../pilha/pilha.hpp"
 #include "../pilhaMin/pilhaMin.hpp"
+#include "../arvoreBusca/arvoreBusca.hpp"
 #include <stack>
 #include <queue>
 
@@ -20,7 +21,7 @@ void exercicio5b();
 void exercicio5c();
 void exercicio6();
 void exercicio7();
-
+void exercicioArvoreBusca();
 
 /*funcoes auxiliares dos exercicios 4 pra frente*/
 void imprimeStack(stack<char> p);
