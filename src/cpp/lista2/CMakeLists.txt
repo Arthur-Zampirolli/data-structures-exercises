@@ -36,8 +36,7 @@ target_sources(pilha  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pilha)
 add_library(pilhaMin STATIC     pilhaMin/pilhaMin.cpp pilhaMin/pilhaMin.hpp)
 target_sources(pilhaMin  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/pilhaMin)
 
-add_library(arvoreBusca STATIC     arvoreBusca/arvoreBusca.cpp arvoreBusca/arvoreBusca.hpp)
-target_sources(arvoreBusca  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/arvoreBusca)
+
 
 add_executable(main main.cpp)
 target_link_libraries(main PRIVATE deck)
@@ -46,7 +45,7 @@ target_link_libraries(main PRIVATE fila)
 target_link_libraries(main PRIVATE pilha2Filas)
 target_link_libraries(main PRIVATE fila2P)
 target_link_libraries(main PRIVATE pilha)
-target_link_libraries(main PRIVATE arvoreBusca)
+
 
 
 

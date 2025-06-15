@@ -139,16 +139,6 @@ void exercicio7(){
     cout << "result: " << result << endl;
 }
 
-void exercicioArvoreBusca(){
-    ArvoreBusca<int> a;
-    a.insere(1, a.getRaiz());
-    a.insere(3, a.getRaiz());
-    a.insere(35, a.getRaiz());
-    a.insere(-12, a.getRaiz());
-    a.insere(-1, a.getRaiz());
-    a.imprime(a.getRaiz());
-}
-
 /*funcoes auxiliares dos exercicios 4 pra frente*/
 //complexidade O(1)
 bool checkOperador(char c) {
