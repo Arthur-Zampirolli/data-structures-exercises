@@ -1,6 +1,7 @@
 #include "arvoreBusca.hpp"
 #include <cctype>
-
+#include <queue>
+#include <cmath>
 NoBin *aloca(char c)
 {
     NoBin *no = new NoBin;
@@ -103,6 +104,23 @@ auto estritaBin(NoBin *no) -> bool
 }
 auto emNiveis(NoBin *no) -> void
 {
+    std::queue<NoBin*> fila;
+    fila.push(no);
+    int nivel = 0;
+    int i = 0;
+    while(!fila.empty()){
+        NoBin* temp = fila.front();
+        fila.pop();
+        if(!temp){
+            ::printf(" * ");
+        }
+        else{
+            ::printf(" %c", temp->chave);
+            fila.push(temp->esq);
+            fila.push(temp->dir);
+        }
+    }
+
 }
 auto ehPerfeita(NoBin *no) -> bool
 {
@@ -144,10 +162,15 @@ auto busca(char chave, NoBin *no) -> char {
     }
 }
 
-auto altura(NoBin *no)
+auto altura(NoBin *no) -> int
 {
     if (!no)
         return 0;
-    return altura(no->dir) + 1;
-    return altura(no->esq) + 1;
+    int dir = altura(no->dir);
+    int esq = altura(no->esq);
+    if(dir > esq){
+        return dir + 1;
+    }else{
+        return esq + 1;
+    }
 }

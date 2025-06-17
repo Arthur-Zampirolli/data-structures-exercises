@@ -84,6 +84,11 @@ auto exercicio6() -> void{
     insere('A', a1);
     
     auto result = busca('Z', a1);
+    auto a = altura(a1);
+    ::printf("a1=%c %d\n", result, a);
+    emNiveis(a1);
+}
 
-    ::printf("a1=%c\n", result);
+auto exercicio7() -> void{
+
 }

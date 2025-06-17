@@ -7,4 +7,5 @@ void exercicio3();
 void exercicio4();
 void exercicio5();
 void exercicio6();
+void exercicio7();
 #endif
