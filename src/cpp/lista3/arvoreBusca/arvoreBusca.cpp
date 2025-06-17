@@ -90,9 +90,12 @@ auto imprime(NoBin *raiz) -> void
 {
     if (!raiz)
         return;
+
+    imprime(raiz->esq);
     imprime(raiz->dir);
     ::printf("%c ", raiz->chave);
-    imprime(raiz->esq);
+
+
 }
 auto estritaBin(NoBin *no) -> bool
 {
@@ -129,6 +132,17 @@ auto ehBinariaBusca(NoBin* no) -> bool{
     ehBinariaBusca(no->esq);
 }
 
+auto busca(char chave, NoBin *no) -> char {
+    //return '\0';
+    if(!no) return '\0';
+    else if(no->chave == chave) return chave;
+    else if(chave > no->chave){
+        return busca(chave, no->dir);
+    }
+    else if(chave < no->chave){
+        return busca(chave, no->esq);
+    }
+}
 
 auto altura(NoBin *no)
 {

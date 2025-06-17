@@ -13,6 +13,8 @@ int main(){
     exercicio4();
     std::printf("-------------EXERCICIO 5----------\n\n");
     exercicio5();
+    std::printf("-------------EXERCICIO 6----------\n\n");
+    exercicio6();
     std::printf("-----------------FIM----------------\n\n");
     return 0;
 }

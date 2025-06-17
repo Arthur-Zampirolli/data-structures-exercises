@@ -22,5 +22,6 @@ auto buscaNo(NoBin* no);//auxiliar exercicio 1e
 auto aloca(char c) -> NoBin*;
 auto maior(NoBin* no) -> char;
 auto menor(NoBin* no) -> char;
+auto busca(char chave, NoBin *no) -> char;
 auto ehBinariaBusca(NoBin* no) -> bool;
 #endif

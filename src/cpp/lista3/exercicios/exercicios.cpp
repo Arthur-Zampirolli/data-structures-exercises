@@ -83,13 +83,7 @@ auto exercicio6() -> void{
     insere('Z', a1);
     insere('A', a1);
     
-    auto result = ehBinariaBusca(a1);
+    auto result = busca('Z', a1);
 
-    NoBin * a2 = aloca('d');
-    a2->dir = aloca('x');
-    a2->esq = aloca('z');
-    a2->esq->dir = aloca('P');
-
-    auto result2 = ehBinariaBusca(a2);
-    ::printf("a1=%d e a2=%d\n", result, result2);
+    ::printf("a1=%c\n", result);
 }
