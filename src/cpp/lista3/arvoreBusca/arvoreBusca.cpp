@@ -10,6 +10,26 @@ NoBin *aloca(char c)
     return no;
 }
 
+auto preordem(NoBin* no) -> void{
+    if(!no) return;
+    ::printf(" %c ", no->chave);
+    preordem(no->esq);
+    preordem(no->dir);
+}
+auto posordem(NoBin* no) -> void{
+    if(!no) return;
+    preordem(no->esq);
+    preordem(no->dir);
+    ::printf(" %c ", no->chave);
+
+}
+auto inorder(NoBin* no) -> void{
+    if(!no) return;
+    preordem(no->esq);
+    ::printf(" %c ", no->chave);
+    preordem(no->dir);
+}
+
 auto maior(NoBin *no) -> char
 {
     NoBin *temp = no;
@@ -120,7 +140,7 @@ auto emNiveis(NoBin *no) -> void
             fila.push(temp->dir);
         }
     }
-
+    ::printf("\n");
 }
 auto ehPerfeita(NoBin *no) -> bool
 {
@@ -173,4 +193,33 @@ auto altura(NoBin *no) -> int
     }else{
         return esq + 1;
     }
+}
+auto anterior(char chave, NoBin* no) -> char{
+    
+    if(!no) return '\0';
+    if(no->dir){
+        if(no->dir->chave == chave) return no->chave;
+    }
+    if(no->esq){
+        if(no->esq->chave == chave) return no->chave;
+    }
+    if(chave < no->chave){
+        return anterior(chave, no->esq);
+    }
+    else{
+        return anterior(chave, no->dir);
+    }
+    return '\0';
+}
+auto posterior(char chave, NoBin* no) -> char{
+    if(!no) return '\0';
+    if(!no->dir) return '\0';
+    if(no->chave == chave) return no->dir->chave;
+    if(chave < no->chave){
+        return posterior(chave, no->esq);
+    }
+    else{
+        return posterior(chave, no->dir);
+    }
+    return '\0';
 }
