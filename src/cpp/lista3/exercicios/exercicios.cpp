@@ -1,6 +1,32 @@
 #include "exercicios.hpp"
 
 
+
+void exercicio1b(){
+    NoBin * raiz = aloca('b');
+    insere('B', raiz);
+    insere('a', raiz);
+    insere('x', raiz);
+    insere('C', raiz);
+    insere('z', raiz);
+    insere('Z', raiz);
+    ::printf("imprimindo nós da árvore em niveis\n");
+    emNiveis(raiz);
+}
+
+void exercicio1e(){
+    NoBin * raiz = aloca('b');
+    insere('B', raiz);
+    insere('a', raiz);
+    insere('x', raiz);
+    insere('C', raiz);
+    insere('z', raiz);
+    insere('Z', raiz);
+    auto alt = altura(raiz);
+        ::printf("altura do no %c eh %d\n", raiz->chave, alt);
+
+}
+
 void exercicio1f(){
     NoBin * raiz = aloca('b');
     insere('B', raiz);

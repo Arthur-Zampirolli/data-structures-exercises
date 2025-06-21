@@ -2,6 +2,8 @@
 #define EXERCICIOS
 #include "../arvoreBusca/arvoreBusca.hpp"
 
+void exercicio1b();
+void exercicio1e();
 void exercicio1f();
 void exercicio1g();
 void exercicio1h();
