@@ -186,47 +186,45 @@ auto emNiveis(NoBin *no) -> void
     }
     ::printf("\n");
 }
-
+auto mostraFila(std::queue<NoBin*> fila) -> void;
 auto ehCompleta(NoBin *no) -> bool
 {
     //todo no folha tem que estar no mesmo nível e todo no só pode ter ou zero ou 2 filhos
     std::queue<NoBin *> fila;
-    std::queue<int> profundidades;
     fila.push(no);
-    int depth = 1;
-    int maxDepth = 0;
-    bool leave = false;
-    int n = 0;
-    int i = 0;
+    int profundidade = 1;
     while(!fila.empty()){
+        mostraFila(fila);
         NoBin *temp = fila.front();
         fila.pop();
-        if((temp->esq && !temp->dir)||(!temp->esq && temp->dir)){
-            
-            return false;
-        }
-        if(temp->esq && temp->dir){
-            fila.push(temp->esq);
+        if(temp){
+            fila.push(temp->esq); 
             fila.push(temp->dir);
-            depth++;
         }
-        if(!temp->esq && !temp->dir){
-            profundidades.push(depth);
-            if(depth > maxDepth){
-                maxDepth = depth;
+        else{
+            while(!fila.empty()){
+                if(fila.front()) return false;
+                fila.pop();
             }
-            n++;
-        }
-    }
-    while(!profundidades.empty()){
-        auto p = profundidades.front();
-        profundidades.pop();
-        ::printf("verificando profundidade p = %d com a máxima %d", p, maxDepth);
-        if((maxDepth != p)){
-            return false;
         }
     }
     return true;
+}
+
+auto mostraFila(std::queue<NoBin*> fila) -> void{
+    std::queue<NoBin*> temp;
+    while(!fila.empty()){
+        if(fila.front()){
+            ::printf("%c ", fila.front()->chave);
+        }
+        temp.push(fila.front());
+        fila.pop();
+    }
+    ::printf("\n");
+    while(!temp.empty()){
+        fila.push(temp.front());
+        temp.pop();
+    }
 }
 
 auto bstreeRequirements(NoBin*no) -> bool{

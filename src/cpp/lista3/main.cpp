@@ -11,6 +11,8 @@ int main()
     exercicio1b();
     std::printf("\n-------------EXERCICIO 1C----------\n\n");
     exercicio1c();
+    std::printf("\n-------------EXERCICIO 1D----------\n\n");
+    exercicio1d();
     std::printf("\n-------------EXERCICIO 1E----------\n\n");
     exercicio1e();
     std::printf("\n-------------EXERCICIO 1F----------\n\n");

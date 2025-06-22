@@ -36,12 +36,17 @@ void exercicio1c(){
 }
 
 void exercicio1d(){
-    NoBin * raiz = aloca('c');
-    insere('b', raiz);
-    insere('f', raiz);
-    insere('d', raiz);
-    insere('h', raiz);
-    ::printf("verificando de a arvore eh perfeita\n");
+    NoBin * raiz = aloca('f');
+    insere('X', raiz);
+    insere('s', raiz);
+    insere('t', raiz);
+    insere('g', raiz);
+    insere('Z', raiz);
+    insere('A', raiz);
+    insere('1', raiz);
+    
+    
+    ::printf("verificando de a arvore eh completa\n");
     auto result = ehCompleta(raiz);
     ::printf("result = %d", result);
 }
