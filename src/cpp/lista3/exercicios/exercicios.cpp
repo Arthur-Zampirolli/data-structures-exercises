@@ -212,3 +212,27 @@ auto exercicio8() -> void{
     auto result = posterior('B', a1);
     ::printf("posterior result %c\n", result);
 }
+
+auto exercicio9() -> void{
+    NoBin * a1 = aloca('b');
+    insere('B', a1);
+    insere('a', a1);
+    insere('x', a1);
+    insere('C', a1);
+    insere('z', a1);
+    insere('Z', a1);
+    insere('A', a1);
+    auto result = fator(a1);
+    ::printf("fator result %d\n", result);
+}
+auto exercicio10() -> void{
+    NoBin * a1 = aloca('b');
+    insere('B', a1);
+    insere('a', a1);
+    insere('x', a1);
+    insere('C', a1);
+    insere('z', a1);
+    insere('Z', a1);
+    insere('A', a1);
+    qualRotacao(a1);
+}

@@ -1,4 +1,4 @@
-#include "arvoreBusca.hpp"
+#include "arvores.hpp"
 #include <cctype>
 #include <queue>
 #include <cmath>
@@ -298,4 +298,34 @@ auto posterior(char chave, NoBin* no) -> char{
         return posterior(chave, no->dir);
     }
     return '\0';
+}
+auto fator(NoBin* no) ->int{
+    if(no){
+        return altura(no->esq) - altura(no->dir);
+    }
+    return 0;
+}
+auto qualRotacao(NoBin* no) -> void{
+    auto limite = 2;
+    if(no){
+        auto fb = fator(no);
+        if(fb >= limite){
+            if(no->esq->dir){
+                ::printf("rotação direita-esquerda\n");
+            }
+            else{
+                ::printf("rotação a direita\n");
+            }
+        }   
+        if(fb <= - limite){  
+            if(no->dir->esq){
+                ::printf("rotação esquerda-direita\n");
+            }else{
+                ::printf("rotação a esquerda\n");
+            }
+        }
+    }
+    else{
+        ::printf("nenhuma rotação\n");
+    }
 }

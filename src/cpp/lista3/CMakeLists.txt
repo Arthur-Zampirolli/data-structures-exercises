@@ -15,15 +15,15 @@ set(CMAKE_CXX_MODULE_STD 1)
 add_library(exercicios STATIC     exercicios/exercicios.cpp exercicios/exercicios.hpp)
 target_sources(exercicios  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/exercicios)
 
-add_library(arvoreBusca STATIC     arvoreBusca/arvoreBusca.cpp arvoreBusca/arvoreBusca.hpp)
-target_sources(arvoreBusca  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/arvoreBusca)
+add_library(arvores STATIC     arvores/arvores.cpp arvores/arvores.hpp)
+target_sources(arvores  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/arvores)
 
 
 
 add_executable(main main.cpp)
 # A ordem importa
 target_link_libraries(main PRIVATE exercicios)
-target_link_libraries(main PRIVATE arvoreBusca)
+target_link_libraries(main PRIVATE arvores)
 
 
 

@@ -29,4 +29,6 @@ auto busca(char chave, NoBin *no) -> char;
 auto ehBinariaBusca(NoBin* no) -> bool;
 auto anterior(char chave, NoBin* no) -> char;
 auto posterior(char chave, NoBin* no) -> char;
+auto fator(NoBin *no) -> int;
+auto qualRotacao(NoBin* no) -> void;
 #endif
