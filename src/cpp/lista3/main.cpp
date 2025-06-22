@@ -5,8 +5,12 @@
 
 int main()
 {
+    std::printf("\n-------------EXERCICIO 1A---------\n\n");
+    exercicio1a();
     std::printf("\n-------------EXERCICIO 1B----------\n\n");
-    exercicio1f();
+    exercicio1b();
+    std::printf("\n-------------EXERCICIO 1C----------\n\n");
+    exercicio1c();
     std::printf("\n-------------EXERCICIO 1E----------\n\n");
     exercicio1e();
     std::printf("\n-------------EXERCICIO 1F----------\n\n");

@@ -2,6 +2,16 @@
 
 
 
+void exercicio1a(){
+    NoBin * raiz = aloca('b');
+    insere('a', raiz);
+    insere('c', raiz);
+
+    ::printf("verificando se arvore eh estritamente binaria\n");
+    auto result = estritaBin(raiz);
+    ::printf("result = %d", result);
+}
+
 void exercicio1b(){
     NoBin * raiz = aloca('b');
     insere('B', raiz);
@@ -12,6 +22,28 @@ void exercicio1b(){
     insere('Z', raiz);
     ::printf("imprimindo nós da árvore em niveis\n");
     emNiveis(raiz);
+}
+
+void exercicio1c(){
+    NoBin * raiz = aloca('c');
+    insere('b', raiz);
+    insere('f', raiz);
+    insere('d', raiz);
+    insere('h', raiz);
+    ::printf("verificando de a arvore eh perfeita\n");
+    auto result = ehPerfeita(raiz);
+    ::printf("result = %d", result);
+}
+
+void exercicio1d(){
+    NoBin * raiz = aloca('c');
+    insere('b', raiz);
+    insere('f', raiz);
+    insere('d', raiz);
+    insere('h', raiz);
+    ::printf("verificando de a arvore eh perfeita\n");
+    auto result = ehCompleta(raiz);
+    ::printf("result = %d", result);
 }
 
 void exercicio1e(){
