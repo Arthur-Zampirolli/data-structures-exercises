@@ -31,4 +31,6 @@ auto anterior(char chave, NoBin* no) -> char;
 auto posterior(char chave, NoBin* no) -> char;
 auto fator(NoBin *no) -> int;
 auto qualRotacao(NoBin* no) -> void;
+auto ehHeap(int* heap, int N) -> bool;
+auto novo(int elemento, int* heap, int N) -> void;
 #endif

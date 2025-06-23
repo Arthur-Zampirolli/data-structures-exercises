@@ -236,3 +236,20 @@ auto exercicio10() -> void{
     insere('A', a1);
     qualRotacao(a1);
 }
+
+auto exercicio11() -> void{
+    int heap[] = { 10, 5, 3, 2, 4 };
+    int n = sizeof(heap) / sizeof(heap[0]);
+    auto result = ehHeap(heap, n);
+    ::printf("Eh heap %d\n", result);
+}
+auto exercicio12() -> void{
+    int heap[] = { 10, 5, 3, 2, 4 };
+    int n = sizeof(heap) / sizeof(heap[0]);
+    novo(45, heap, n);
+    ::printf("valores da heap\n");
+    for(int i = 0; i < n; i++){
+        ::printf("%d ", heap[i]);
+    }
+    ::printf("\n");
+}

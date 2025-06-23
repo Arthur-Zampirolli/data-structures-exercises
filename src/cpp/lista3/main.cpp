@@ -37,8 +37,12 @@ int main()
     exercicio8();
     std::printf("\n-------------EXERCICIO 9----------\n\n");
     exercicio9();
-    std::printf("\n-------------EXERCICIO 9----------\n\n");
+    std::printf("\n-------------EXERCICIO 10----------\n\n");
     exercicio10();
+    std::printf("\n-------------EXERCICIO 11----------\n\n");
+    exercicio11();
+    std::printf("\n-------------EXERCICIO 12----------\n\n");
+    exercicio12();
     std::printf("\n-----------------FIM----------------\n\n");
     return 0;
 }

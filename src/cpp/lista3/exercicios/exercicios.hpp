@@ -18,4 +18,6 @@ void exercicio7();
 void exercicio8();
 void exercicio9();
 void exercicio10();
+void exercicio11();
+void exercicio12();
 #endif

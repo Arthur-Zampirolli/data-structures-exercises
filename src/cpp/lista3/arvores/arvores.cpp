@@ -2,6 +2,7 @@
 #include <cctype>
 #include <queue>
 #include <cmath>
+#define UNDEFINED 
 NoBin *aloca(char c)
 {
     NoBin *no = new NoBin;
@@ -329,3 +330,41 @@ auto qualRotacao(NoBin* no) -> void{
         ::printf("nenhuma rotação\n");
     }
 }
+
+//heap de maximos
+auto ehHeap(int* heap, int N) -> bool
+{
+    for(int i = 0; i < (N-1)/2; i++){
+        int esq = 2 * i + 1;
+        int dir = 2 * i + 2;
+        ::printf("heapify %d %d %d\n", N, esq, dir);
+
+        if((dir < N) && (heap[i] < heap[dir])) return false;
+        if((esq < N) && (heap[i] < heap[esq])) return false;
+    }
+    return true;
+}
+auto heapify(int* heap, int N, int i) -> void{
+    int maior = i;
+    int esq = 2*i+1;
+    int dir = 2*i+2;
+    ::printf("heapify %d %d %d\n", maior, esq, dir);
+    if(heap[esq] > heap[i]){
+        maior = esq;
+    }
+    if(heap[dir] > heap[i]){
+        maior = dir;
+    }
+    if(maior != i){
+        //troca
+        std::swap(heap[i], heap[maior]);
+        //chama heapify
+        heapify(heap, N, maior);
+    }
+}
+auto novo(int elemento, int* heap, int N) -> void
+{
+    heap[N-1] = elemento;
+    heapify(heap, N, 0);
+}
+
