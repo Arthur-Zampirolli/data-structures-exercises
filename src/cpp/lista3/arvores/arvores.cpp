@@ -19,16 +19,15 @@ auto preordem(NoBin* no) -> void{
 }
 auto posordem(NoBin* no) -> void{
     if(!no) return;
-    preordem(no->esq);
-    preordem(no->dir);
+    posordem(no->esq);
+    posordem(no->dir);
     ::printf(" %c ", no->chave);
-
 }
 auto inorder(NoBin* no) -> void{
     if(!no) return;
-    preordem(no->esq);
+    inorder(no->esq);
     ::printf(" %c ", no->chave);
-    preordem(no->dir);
+    inorder(no->dir);
 }
 
 auto maior(NoBin *no) -> char
@@ -36,17 +35,13 @@ auto maior(NoBin *no) -> char
     NoBin *temp = no;
     char maior = '\0';
     if(no){
-        if(isupper(no->chave)) maior = no->chave;
+        maior = no->chave;
     }
-    while(temp){
+    while(temp){//complexidade O(LogN)
         ::printf("iterando...\n");
-        if(isupper(temp->chave)){
-            ::printf("maior %c\n", maior);
-            maior = temp->chave;
-            temp = temp->dir;
-        }else{
-            temp = temp->esq;
-        }
+        ::printf("maior %c\n", maior);
+        maior = temp->chave;
+        temp = temp->dir;
     }
     return maior;
 }
@@ -55,24 +50,19 @@ auto menor(NoBin *no) -> char
     NoBin *temp = no;
     char menor = '\0';
     if(no){
-        if(isupper(no->chave)) menor = no->chave;
+        menor = no->chave;
     }
-    while(temp){
+    while(temp){//complexidade O(LogN)
         ::printf("iterando...\n");
-        if(isupper(temp->chave)){
-            ::printf("menor %c\n", menor);
-            menor = temp->chave;
-            temp = temp->esq;
-        }else{
-            temp = temp->esq;
-        }
+        ::printf("menor %c\n", menor);
+        menor = temp->chave;
+        temp = temp->esq;
     }
     return menor;
 }
 
 auto insere(char chave, NoBin *raiz) -> void
 {
-
     ::printf("Inserindo chave=%c na árvore...\n", chave);
     if (!raiz)
     {
@@ -138,7 +128,7 @@ auto ehPerfeita(NoBin *no) -> bool
     int depth = 1;
     int maxDepth = 0;
     bool leave = false;
-    while(!fila.empty()){
+    while(!fila.empty()){//complexidade O(N)
         NoBin *temp = fila.front();
         fila.pop();
         if((temp->esq && !temp->dir)||(!temp->esq && temp->dir)) return false;
@@ -155,7 +145,7 @@ auto ehPerfeita(NoBin *no) -> bool
             }
         }
     }
-    while(!profundidades.empty()){
+    while(!profundidades.empty()){//complexidade O(N)
         auto p = profundidades.front();
         profundidades.pop();
         ::printf("verificando profundidade p = %d com a máxima %d", p, maxDepth);
@@ -173,7 +163,7 @@ auto emNiveis(NoBin *no) -> void
     fila.push(no);
     int nivel = 0;
     int i = 0;
-    while(!fila.empty()){
+    while(!fila.empty()){//complexidade O(N)
         NoBin* temp = fila.front();
         fila.pop();
         if(!temp){
@@ -194,7 +184,7 @@ auto ehCompleta(NoBin *no) -> bool
     std::queue<NoBin *> fila;
     fila.push(no);
     int profundidade = 1;
-    while(!fila.empty()){
+    while(!fila.empty()){//complexidade O(N)
         mostraFila(fila);
         NoBin *temp = fila.front();
         fila.pop();
@@ -203,7 +193,7 @@ auto ehCompleta(NoBin *no) -> bool
             fila.push(temp->dir);
         }
         else{
-            while(!fila.empty()){
+            while(!fila.empty()){//O(N)
                 if(fila.front()) return false;
                 fila.pop();
             }
@@ -214,7 +204,7 @@ auto ehCompleta(NoBin *no) -> bool
 
 auto mostraFila(std::queue<NoBin*> fila) -> void{
     std::queue<NoBin*> temp;
-    while(!fila.empty()){
+    while(!fila.empty()){//complexidade O(N)
         if(fila.front()){
             ::printf("%c ", fila.front()->chave);
         }
@@ -231,6 +221,7 @@ auto mostraFila(std::queue<NoBin*> fila) -> void{
 auto bstreeRequirements(NoBin*no) -> bool{
     //filhos n podem ser iguais
     //filhos de um lado devem ser > que os de outro
+    //O(1)
     if(no){
         if(no->dir && no->esq){
             if(no->esq->chave == no->dir->chave ) return false;
@@ -310,17 +301,19 @@ auto qualRotacao(NoBin* no) -> void{
     auto limite = 2;
     if(no){
         auto fb = fator(no);
+        auto fbDir = fator(no->dir);
+        auto fbEsq = fator(no->esq);
         if(fb >= limite){
-            if(no->esq->dir){
-                ::printf("rotação direita-esquerda\n");
+            if(fbDir < 0){
+                ::printf("rotação dupla a esquerda\n");
             }
             else{
                 ::printf("rotação a direita\n");
             }
         }   
         if(fb <= - limite){  
-            if(no->dir->esq){
-                ::printf("rotação esquerda-direita\n");
+            if(fbEsq > 0){
+                ::printf("rotação dupla a direita\n");
             }else{
                 ::printf("rotação a esquerda\n");
             }
@@ -334,11 +327,9 @@ auto qualRotacao(NoBin* no) -> void{
 //heap de maximos
 auto ehHeap(int* heap, int N) -> bool
 {
-    for(int i = 0; i < (N-1)/2; i++){
+    for(int i = 0; i < (N-1)/2; i++){//O(N)
         int esq = 2 * i + 1;
         int dir = 2 * i + 2;
-        ::printf("heapify %d %d %d\n", N, esq, dir);
-
         if((dir < N) && (heap[i] < heap[dir])) return false;
         if((esq < N) && (heap[i] < heap[esq])) return false;
     }
@@ -349,15 +340,18 @@ auto heapify(int* heap, int N, int i) -> void{
     int esq = 2*i+1;
     int dir = 2*i+2;
     ::printf("heapify %d %d %d\n", maior, esq, dir);
-    if(heap[esq] > heap[i]){
+    if(esq < N && heap[esq] > heap[i]){
         maior = esq;
     }
-    if(heap[dir] > heap[i]){
+    if(dir < N && heap[dir] > heap[i]){
         maior = dir;
     }
     if(maior != i){
         //troca
-        std::swap(heap[i], heap[maior]);
+        //std::swap(heap[i], heap[maior]);
+        auto temp = heap[i];
+        heap[i] = heap[maior];
+        heap[maior] = temp;
         //chama heapify
         heapify(heap, N, maior);
     }
@@ -365,6 +359,8 @@ auto heapify(int* heap, int N, int i) -> void{
 auto novo(int elemento, int* heap, int N) -> void
 {
     heap[N-1] = elemento;
-    heapify(heap, N, 0);
+    for (int i = N/2 - 1; i >= 0; i--) {//O(N)
+        heapify(heap, N, i);
+    }
 }
 
